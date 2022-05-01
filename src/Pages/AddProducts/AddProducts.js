@@ -12,17 +12,20 @@ function AddProducts() {
     const supplier = event.target.supplier.value;
     const product = { image, name, description, price, quantity, supplier };
 
-    fetch('http://localhost:5000/products', {
+    fetch('https://limitless-cliffs-34588.herokuapp.com/products', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
       body: JSON.stringify(product)
     });
+
+    event.target.reset();
+    alert('product added')
   }
 
   return (
-    <form className='mx-auto p-4 borders  rounded w-50' onSubmit={addProducts}>
+    <form className='mx-auto my-4 p-4 borders  rounded w-50' onSubmit={addProducts}>
       <p className='fs-5 fw-bold '> Image URL :
         <input className='w-100 p-1 borders' type="text" name="image" placeholder='Image URL' autoComplete='off' required />
       </p>
@@ -41,7 +44,7 @@ function AddProducts() {
       <p className='fs-5 fw-bold '> Supplier Name:
         <input className='w-100 p-1 borders' type="text" name="supplier" placeholder='Supplier Name' required autoComplete='off' />
       </p>
-      <input className='btn btn-primary' type="submit" value="Add Product" />
+      <input className='btn btn-primary w-100 mt-4' type="submit" value="Add Product" />
     </form>
   )
 }

@@ -1,16 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import useProducts from '../../Custom hooks/useProducts';
+import Products from '../Products/Products';
+import banner from '../../Image/banner.jpg'
+import './Home.css'
 
 function Home() {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/products')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+    const [products] = useProducts();
     return (
         <div>
-            <h3>this is home page</h3>
-            <p>{products.length}</p>
+            <img className='w-100' src={banner} alt="" />
+            <div className='container '>
+                <h3 className='text-center mt-3'>products in stock</h3>
+                <div className='row' >
+
+                    {
+                        products.splice(0, 6).map(product => <Products
+                            key={product._id}
+                            product={product}
+                        ></Products>)}
+                </div>
+            </div>
         </div>
     )
 }
