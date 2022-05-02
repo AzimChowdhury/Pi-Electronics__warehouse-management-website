@@ -14,7 +14,7 @@ function Header() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav navbar-left">
                             <li className="nav-item">
-                                <Link className="nav-link active" to='/home'>Home</Link>
+                                <Link className="nav-link " to='/home'>Home</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to='/add'>Add Products</Link>

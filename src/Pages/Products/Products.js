@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Products.css';
 function Products({ product }) {
-    const { image, name, price, quantity, supplier, description } = product
+    const { _id, image, name, price, quantity, supplier, description } = product
     return (
         <div className='col-lg-6 col-sm-12 p-2 m-2 d-flex p-card'>
             <img className='img-fluid' src={image} alt="" />
@@ -11,7 +12,7 @@ function Products({ product }) {
                 <p>Quantity:{quantity}</p>
                 <p>Supplier: {supplier}</p>
                 <p> Description:{description}</p>
-                <button className='btn btn-dark' >Manage</button>
+                <Link to={`/product/${_id}`}><button className='btn btn-dark' >update</button></Link>
             </div>
         </div>
     )
