@@ -3,8 +3,22 @@ img {
     margin-top: 0px;
 }
 
+.manage-products {
+    margin-left: 40%;
+    margin-top: 30px;
+}
+
+.input-group {
+    margin-left: 23%;
+}
+
+
 @media only screen and (max-width:450px) {
     img {
         height: 180px;
+    }
+
+    .manage-products {
+        margin-left: 18%;
     }
 }

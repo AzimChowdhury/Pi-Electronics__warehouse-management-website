@@ -4,7 +4,7 @@ function Products({ product }) {
     const { image, name, price, quantity, supplier, description } = product
     return (
         <div className='col-lg-6 col-sm-12 p-2 m-2 d-flex p-card'>
-            <img src={image} alt="" />
+            <img className='img-fluid' src={image} alt="" />
             <div className='ps-4'>
                 <h6>{name}</h6>
                 <p>Price: {price} <small>tk</small></p>
