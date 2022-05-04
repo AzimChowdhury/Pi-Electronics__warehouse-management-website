@@ -21,12 +21,12 @@ function Product() {
                     <img className="card-img-top p-3" style={{ height: '300px' }} src={image} alt="Pi electronics product" />
                     <div className="card-body">
                         <h3 className="card-title">{name}</h3>
-                        <p><small> unique id : {_id}</small></p>
+                        <p><small>  id : {_id}</small></p>
                         <p className="card-text">Description: {description}</p>
                         <h6 className="card-text">Price: {price}</h6>
                         <h6 className="card-text">Quantity: {quantity}</h6>
                         <h6 className="card-text">Supplier: {supplier}</h6>
-                        <button className='btn btn-dark'>Delivered</button>
+                        <button className='btn btn-dark mt-3'>Delivered</button>
                     </div>
                 </div>
                 <div>

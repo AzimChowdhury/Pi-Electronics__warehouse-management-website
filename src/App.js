@@ -5,6 +5,7 @@ import Inventory from "./Pages/Inventory/Inventory";
 import Login from "./Pages/Login/Login";
 import Product from "./Pages/Product/Product";
 import Register from "./Pages/Register/Register";
+import RequireAuth from "./RequireAuth";
 import Footer from "./Shared/Footer/Footer";
 import Header from "./Shared/Header/Header";
 
@@ -17,9 +18,14 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/add" element={<AddProducts></AddProducts>}></Route>
+        <Route path="/add" element={<RequireAuth><AddProducts></AddProducts></RequireAuth>}></Route>
         <Route path="/inventory" element={<Inventory></Inventory>}></Route>
-        <Route path="/product/:id" element={<Product></Product>}></Route>
+        <Route path="/product/:id" element={
+          <RequireAuth>
+            <Product></Product>
+          </RequireAuth>
+        }>
+        </Route>
         <Route path="/register" element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>
