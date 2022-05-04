@@ -10,11 +10,7 @@ function Product() {
             .then(data => setProduct(data))
     }, [id])
     const { _id, name, image, description, price, quantity, supplier } = product;
-    const [value, setValue] = useState('');
-    const handleChange = (event) => {
-        event.preventDefault();
-        setValue(event.target.value);
-    }
+
 
 
     return (
@@ -27,9 +23,9 @@ function Product() {
                         <h3 className="card-title">{name}</h3>
                         <p><small> unique id : {_id}</small></p>
                         <p className="card-text">Description: {description}</p>
-                        <h5 className="card-text">Price: {price}</h5>
-                        <h5 className="card-text">Quantity: {quantity}</h5>
-                        <h5 className="card-text">Supplier: {supplier}</h5>
+                        <h6 className="card-text">Price: {price}</h6>
+                        <h6 className="card-text">Quantity: {quantity}</h6>
+                        <h6 className="card-text">Supplier: {supplier}</h6>
                         <button className='btn btn-dark'>Delivered</button>
                     </div>
                 </div>
@@ -54,7 +50,7 @@ function Product() {
                         <p className='fs-5 fw-bold '> Supplier Name:
                             <input className='w-100 p-1 borders' type="text" name="supplier" placeholder='Supplier Name' required autoComplete='off' />
                         </p>
-                        <input className='btn btn-dark w-100 mt-4' type="submit" value="Add Product" />
+                        <input className='btn btn-dark w-100 mt-4' type="submit" value="Update Product Details" />
                     </form>
                 </div>
             </div>

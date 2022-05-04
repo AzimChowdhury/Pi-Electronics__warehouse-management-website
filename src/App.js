@@ -4,6 +4,7 @@ import Home from "./Pages/Home/Home";
 import Inventory from "./Pages/Inventory/Inventory";
 import Login from "./Pages/Login/Login";
 import Product from "./Pages/Product/Product";
+import Register from "./Pages/Register/Register";
 import Footer from "./Shared/Footer/Footer";
 import Header from "./Shared/Header/Header";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/add" element={<AddProducts></AddProducts>}></Route>
         <Route path="/inventory" element={<Inventory></Inventory>}></Route>
         <Route path="/product/:id" element={<Product></Product>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
