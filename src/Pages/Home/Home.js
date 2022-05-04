@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function Home() {
     const [products] = useProducts();
-
+    
     return (
         <div>
             <img className='w-100' src={banner} alt="" />
@@ -15,11 +15,11 @@ function Home() {
 
                 <div className='row' >
 
-                    {
+                    {  
                         products.splice(0, 6).map(product => <Products
                             key={product._id}
                             product={product}
-                        ></Products>)
+                        ></Products>) 
                     }
                 </div>
                 <Link to='/inventory'>

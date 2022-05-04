@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function Product() {
     const { id } = useParams();
@@ -54,6 +54,9 @@ function Product() {
                     </form>
                 </div>
             </div>
+            <Link to='/inventory'>
+                <button className='btn btn-dark manage-products py-2 px-5'>Manage Products</button>
+            </Link>
         </div>
     )
 }

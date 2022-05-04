@@ -23,12 +23,25 @@ function Header() {
                             <li className="nav-item">
                                 <Link className="nav-link " to='/home'>Home</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to='/add'>Add Products</Link>
-                            </li>
+                            {
+                                user ?
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to='/add'>Add Products</Link>
+                                    </li>
+                                    :
+                                    ''
+                            }
                             <li className="nav-item">
                                 <Link className="nav-link" to='/inventory'>Inventory</Link>
                             </li>
+                            {
+                                user ?
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to='/myItems'>My Items</Link>
+                                    </li>
+                                    :
+                                    ''
+                            }
                             <li className="nav-item">
                                 {
                                     user ?
