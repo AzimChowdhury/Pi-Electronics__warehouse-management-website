@@ -7,7 +7,7 @@ function Inventory() {
     const [products] = useProducts();
     return (
         <div className='container mt-3'>
-            <h2 style={{ marginLeft: "30%" }}>Inventory of pi electronics</h2>
+            <h2 className='text-center'>Inventory of pi electronics</h2>
             {
                 products.length === 0 ?
                     <div style={{ width: '20px' }} className='mt-5 mx-auto'>

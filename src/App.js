@@ -5,6 +5,7 @@ import Blogs from "./Pages/Blogs/Blogs";
 import Home from "./Pages/Home/Home";
 import Inventory from "./Pages/Inventory/Inventory";
 import Login from "./Pages/Login/Login";
+import MyItems from "./Pages/MyItems/MyItems";
 import Product from "./Pages/Product/Product";
 import Register from "./Pages/Register/Register";
 import RequireAuth from "./RequireAuth";
@@ -30,6 +31,7 @@ function App() {
         </Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/myItems" element={<MyItems></MyItems>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

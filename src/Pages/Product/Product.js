@@ -27,7 +27,7 @@ function Product() {
         })
             .then(res => res.json())
             .then(data => {
-                alert('product details updated successfully');
+                alert('product restocked successfully');
                 e.target.reset();
             })
 

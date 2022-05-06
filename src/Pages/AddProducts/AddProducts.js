@@ -1,7 +1,13 @@
 import React from 'react';
 import './AddProducts.css';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 function AddProducts() {
+
+  const [{ email }] = useAuthState(auth);
+  // console.log(email)
+
   const addProducts = (event) => {
     event.preventDefault();
     const image = event.target.image.value;
@@ -10,7 +16,7 @@ function AddProducts() {
     const price = event.target.price.value;
     const quantity = event.target.quantity.value;
     const supplier = event.target.supplier.value;
-    const product = { image, name, description, price, quantity, supplier };
+    const product = { image, name, description, price, quantity, supplier, email };
 
     fetch('https://limitless-cliffs-34588.herokuapp.com/products', {
       method: 'POST',
