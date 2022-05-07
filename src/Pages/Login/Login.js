@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+// const axios = require('axios').default;
+import axios from 'axios';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import gLogo from '../../Image/g-icon.png';
 import './Login.css';
+
 
 function Login() {
 
@@ -17,6 +20,8 @@ function Login() {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    
 
     // sign in with google 
     const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
@@ -33,7 +38,13 @@ function Login() {
     const from = location.state?.from?.pathname || '/';
 
 
-    if (user || user1) {
+    if ( user1 || user) {
+        // provide jwt token 
+        const provideToken =async (email) => {
+            const {data} = await axios.post('http://localhost:5000/login', {email});
+            localStorage.setItem('jwt-token', data.token)
+        }
+        provideToken(email);
         navigate(from, { replace: true })
     }
 
@@ -46,7 +57,9 @@ function Login() {
             </div>
         )
     }
-    console.log('email ', email)
+
+    
+
     return (
         <div style={{ width: '400px' }} className=' mx-auto border p-2 m-3'>
             <form>
@@ -75,7 +88,7 @@ function Login() {
                     Reset now </button> </p>
 
                 <small className=''>New in pi-electronics ?<Link to='/register'><span> Register Now</span></Link> </small>
-                <button onClick={() => signInWithEmailAndPassword(email, password)} type="submit" className="btn btn-dark mt-3 w-100">Log In</button>
+                <button onClick={ () =>  signInWithEmailAndPassword(email, password)} type="submit" className="btn btn-dark mt-3 w-100">Log In</button>
             </form>
             <div className='d-flex  mt-2'>
                 <div style={{ height: '0px' }} className='border w-50 mt-3'></div>
