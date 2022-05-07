@@ -1,4 +1,4 @@
-import React ,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import useProducts from '../../Custom hooks/useProducts';
 import Products from '../Products/Products';
 import axios from 'axios';
@@ -9,24 +9,24 @@ import auth from '../../firebase.init';
 function MyItems() {
     const [{ email }] = useAuthState(auth);
     const [myProducts, setMyProducts] = useState([]);
-    useEffect(()=>{
-       const myItems = async ()=>{
-            const {data}= await axios.get(`http://localhost:5000/product?email=${email}`,{
-                headers:{
+    useEffect(() => {
+        const myItems = async () => {
+            const { data } = await axios.get(`https://limitless-cliffs-34588.herokuapp.com/product?email=${email}`, {
+                headers: {
                     authorization: `Bearer ${localStorage.getItem('jwt-token')}`
                 }
             })
             setMyProducts(data)
-       }
+        }
 
-       myItems();
+        myItems();
 
-     } , [email])
-     
+    }, [email])
 
 
-     
-    
+
+
+
 
     // const [products] = useProducts();
     // const myItems = products.filter(product => product.email === email)

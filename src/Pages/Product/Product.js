@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 function Product() {
     const { id } = useParams();
@@ -10,7 +10,7 @@ function Product() {
             .then(data => setProduct(data))
     }, [id, product])
     const { _id, name, image, description, price, quantity, supplier } = product;
-    // console.log(product)
+    const navigate = useNavigate();
 
     const updateProductDetails = (e) => {
         e.preventDefault();
@@ -48,10 +48,21 @@ function Product() {
                 alert('product delivered successfully');
 
             })
-
-
     }
 
+    const handleDelete = (id) => {
+        const sure = window.confirm('Are you sure you want to delete ? ')
+        if (sure) {
+            fetch(`https://limitless-cliffs-34588.herokuapp.com/product/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json)
+                .then(data => {
+                    alert('product deleted successfully')
+                    navigate('/inventory')
+                })
+        }
+    }
 
 
 
@@ -71,6 +82,8 @@ function Product() {
                         <h6 className="card-text">Quantity: {quantity}</h6>
                         <h6 className="card-text">Supplier: {supplier}</h6>
                         <button onClick={handleDeliver} className='btn btn-dark mt-3'>Delivered</button>
+                        <br />
+                        <button onClick={() => handleDelete(_id)} className='btn btn-danger mt-3'> Delete {name}</button>
                     </div>
                 </div>
                 <div>
