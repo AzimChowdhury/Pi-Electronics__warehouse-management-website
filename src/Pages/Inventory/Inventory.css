@@ -1,0 +1,9 @@
+.btn-position {
+    margin-left: 40%;
+}
+
+@media only screen and (max-width:450px) {
+    .btn-position {
+        margin-left: 20%;
+    }
+}

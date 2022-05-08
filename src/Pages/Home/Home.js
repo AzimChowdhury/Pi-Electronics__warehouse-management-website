@@ -7,10 +7,12 @@ import { Link } from 'react-router-dom';
 function Home() {
     const [products] = useProducts();
 
+
     return (
         <div>
             <img className='w-100' src={banner} alt="" />
             <div className='container '>
+
                 <h3 className='text-center mt-3'>products in stock</h3>
 
 

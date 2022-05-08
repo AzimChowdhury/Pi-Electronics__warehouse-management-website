@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './Product.css';
+
 
 
 function Product() {
@@ -74,8 +76,8 @@ function Product() {
         <div>
             {/* <h2 className='text-center m-2'>Update Product </h2> */}
             <div className='mt-3'>
-                <div className="d-flex w-75 mx-auto borders mb-4" >
-                    <div className='w-50 p-2'>
+                <div className="details-card w-75 mx-auto borders mb-4" >
+                    <div className='div-width p-2'>
                         <img className="w-100" style={{ height: '300px' }} src={image} alt="Pi electronics product" />
                     </div>
                     <div className="card-body ms-2 ">
@@ -94,8 +96,8 @@ function Product() {
                     <form onSubmit={updateProductDetails} className='mx-auto p-4 borders  rounded w-75' >
                         <h3 className='text-center  '>Restock - {name}</h3>
                         <p className='fs-5 fw-bold w-100 mx-auto  input-group'>
-                            <input className='w-75  borders ' type="number" name="quantity" placeholder='Quantity' required autoComplete='off' />
-                            <input className='btn btn-dark w-25' type="submit" value="Restock item" />
+                            <input className='field-width  borders ' type="number" name="quantity" placeholder='Quantity' required autoComplete='off' />
+                            <input className='btn btn-dark btn-width' type="submit" value="Restock item" />
                         </p>
 
                     </form>

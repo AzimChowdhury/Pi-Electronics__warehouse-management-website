@@ -1,0 +1,33 @@
+.details-card {
+    display: flex;
+}
+
+.div-width {
+    width: 50%;
+}
+
+.btn-width {
+    width: 25%;
+}
+
+.field-width {
+    width: 75%;
+}
+
+@media only screen and (max-width:450px) {
+    .details-card {
+        display: block;
+    }
+
+    .div-width {
+        width: 100%;
+    }
+
+    .btn-width {
+        width: 45%;
+    }
+
+    .field-width {
+        width: 55%;
+    }
+}

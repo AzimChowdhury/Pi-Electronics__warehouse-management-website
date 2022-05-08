@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './Header.css';
 import { signOut } from 'firebase/auth';
+import piLogo from '../../Image/pi-logo.png';
+
 
 function Header() {
-    const [user, loading, error] = useAuthState(auth);
-    
+    const [user] = useAuthState(auth);
+
     const logout = () => {
         signOut(auth);
     };
@@ -15,7 +17,7 @@ function Header() {
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand fs-2 ps-lg-5 ms-lg-5" to='/home'>PI Electronics</Link>
+                    <Link className="navbar-brand fs-2 ps-lg-5 ms-lg-5" to='/home'><img className='img' src={piLogo} alt="pi logo" /> PI Electronics</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

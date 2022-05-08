@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import useProducts from '../../Custom hooks/useProducts';
 import Products from '../Products/Products';
+import './Inventory.css';
+
+
 
 function Inventory() {
     const [products] = useProducts();
@@ -26,7 +29,7 @@ function Inventory() {
                     </div>
             }
 
-            <Link to='/add'><button style={{ marginLeft: "40%" }} className='btn btn-dark py-2  px-5 fs-5 mt-4' >Add new item</button></Link>
+            <Link to='/add'><button className='btn btn-dark py-2 btn-position  px-5 fs-5 mt-4' >Add new item</button></Link>
         </div>
     )
 }

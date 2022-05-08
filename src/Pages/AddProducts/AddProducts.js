@@ -36,7 +36,7 @@ function AddProducts() {
   }
 
   return (
-    <form className='mx-auto my-4 p-4 borders  rounded w-50' onSubmit={addProducts}>
+    <form className='mx-auto my-4 p-4 borders width rounded  ' onSubmit={addProducts}>
       <h3 className='text-center'>Add a new product</h3>
       <p className='fs-5 fw-bold '> Image URL :
         <input className='w-100 p-1 borders' type="text" name="image" placeholder='Image URL' autoComplete='off' required />
