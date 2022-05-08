@@ -2,6 +2,10 @@ import React from 'react';
 import './AddProducts.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function AddProducts() {
 
@@ -27,7 +31,8 @@ function AddProducts() {
     });
 
     event.target.reset();
-    alert('product added')
+    toast("Product added successfully !")
+
   }
 
   return (
@@ -52,6 +57,17 @@ function AddProducts() {
         <input className='w-100 p-1 borders' type="text" name="supplier" placeholder='Supplier Name' required autoComplete='off' />
       </p>
       <input className='btn btn-dark w-100 mt-4' type="submit" value="Add Product" />
+      <ToastContainer
+        position="top-center"
+        autoClose={6000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </form>
   )
 }

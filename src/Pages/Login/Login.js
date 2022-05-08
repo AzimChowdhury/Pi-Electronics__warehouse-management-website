@@ -6,6 +6,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import gLogo from '../../Image/g-icon.png';
 import './Login.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Login() {
@@ -83,7 +85,7 @@ function Login() {
                 <p >Forgotten your password ? <button className='btn text-primary'
                     onClick={async () => {
                         await sendPasswordResetEmail(email)
-                            .then(() => alert('Sent email'))
+                            .then(() => toast(" email sent !"))
                     }}
                 >
                     Reset now </button> </p>
@@ -100,6 +102,17 @@ function Login() {
                 <img style={{ width: '25px' }} className='img-fluid me-2' src={gLogo} alt="Google logo icon" />
                 Sign in with Google
             </button>
+            <ToastContainer
+                position="top-center"
+                autoClose={6000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     )
 }

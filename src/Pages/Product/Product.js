@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Product() {
     const { id } = useParams();
@@ -27,7 +30,7 @@ function Product() {
         })
             .then(res => res.json())
             .then(data => {
-                alert('product restocked successfully');
+                toast("Product restock successfully !")
                 e.target.reset();
             })
 
@@ -45,7 +48,7 @@ function Product() {
         })
             .then(res => res.json())
             .then(data => {
-                alert('product delivered successfully');
+                toast("Product delivered successfully !")
 
             })
     }
@@ -58,7 +61,8 @@ function Product() {
             })
                 .then(res => res.json)
                 .then(data => {
-                    alert('product deleted successfully')
+                    toast("Product deleted successfully !")
+
                     navigate('/inventory')
                 })
         }
@@ -100,6 +104,17 @@ function Product() {
             <Link to='/inventory'>
                 <button className='btn btn-dark manage-products py-2 px-5'>Manage Products</button>
             </Link>
+            <ToastContainer
+                position="top-center"
+                autoClose={6000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     )
 }
