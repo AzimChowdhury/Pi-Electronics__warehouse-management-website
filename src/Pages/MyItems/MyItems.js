@@ -1,35 +1,34 @@
 import React, { useState, useEffect } from 'react'
-import useProducts from '../../Custom hooks/useProducts';
 import Products from '../Products/Products';
 import axios from 'axios';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { useQuery } from 'react-query';
 
 
 function MyItems() {
-    const [{ email }] = useAuthState(auth);
-    const [myProducts, setMyProducts] = useState([]);
-    useEffect(() => {
-        const myItems = async () => {
-            const { data } = await axios.get(`https://limitless-cliffs-34588.herokuapp.com/product?email=${email}`, {
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem('jwt-token')}`
-                }
-            })
-            setMyProducts(data)
+    const [user,loading] = useAuthState(auth);
+    const { data, isLoading } = useQuery('myItems', () => fetch(`http://localhost:5000/product?email=${user.email}`, {
+        method: "GET",
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('jwt-token')}`
         }
+    }).then(res => res.json()))
 
-        myItems();
+    if (isLoading||loading) {
+        return <>
+            <div style={{ width: '20px' }} className='mt-5 mx-auto'>
+                <div className='spinner-border' role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </>
+    }
 
-    }, [email])
+    
 
 
 
-
-
-
-    // const [products] = useProducts();
-    // const myItems = products.filter(product => product.email === email)
 
     return (
 
@@ -37,14 +36,14 @@ function MyItems() {
             <h3 className='text-center m-2'>My Items</h3>
             <div className='row'>
                 {
-                    myProducts.length === 0 ?
+                    data.length === 0 ?
                         <div>
                             <h3 className='text-center m-5'>You have not added any products yet !</h3>
                         </div>
                         :
                         <div>
                             {
-                                myProducts.map(product => <Products
+                                data.map(product => <Products
                                     key={product._id}
                                     product={product}
                                 ></Products>)

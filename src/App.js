@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import NotFound from "./Pages/404/NotFound";
 import AddProducts from "./Pages/AddProducts/AddProducts";
-import Blogs from "./Pages/Blogs/Blogs";
+
 import Home from "./Pages/Home/Home";
 import Inventory from "./Pages/Inventory/Inventory";
 import Login from "./Pages/Login/Login";
@@ -30,7 +30,7 @@ function App() {
         }>
         </Route>
         <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        
         <Route path="/myItems" element={<RequireAuth><MyItems></MyItems></RequireAuth>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
