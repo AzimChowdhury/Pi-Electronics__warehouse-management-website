@@ -22,7 +22,7 @@ function AddProducts() {
     const supplier = event.target.supplier.value;
     const product = { image, name, description, price, quantity, supplier, email };
 
-    fetch('https://limitless-cliffs-34588.herokuapp.com/products', {
+    fetch('https://pi-electronics224.herokuapp.com/products', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

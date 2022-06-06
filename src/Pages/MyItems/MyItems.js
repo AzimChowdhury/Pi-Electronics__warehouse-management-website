@@ -8,7 +8,7 @@ import { useQuery } from 'react-query';
 
 function MyItems() {
     const [user,loading] = useAuthState(auth);
-    const { data, isLoading } = useQuery('myItems', () => fetch(`http://localhost:5000/product?email=${user.email}`, {
+    const { data, isLoading } = useQuery('myItems', () => fetch(`https://pi-electronics224.herokuapp.com/product?email=${user.email}`, {
         method: "GET",
         headers: {
             authorization: `Bearer ${localStorage.getItem('jwt-token')}`
@@ -25,7 +25,23 @@ function MyItems() {
         </>
     }
 
-    
+    // const [myProducts, setMyProducts] = useState([]);
+
+
+    // useEffect(() => {
+
+    //     const myItems = async () => {
+    //         const { data } = await axios.get(`https://pi-electronics224.herokuapp.com/product?email=${email}`, {
+    //             headers: {
+    //                 authorization: `Bearer ${localStorage.getItem('jwt-token')}`
+    //             }
+    //         })
+    //         setMyProducts(data)
+    //     }
+
+    //     myItems();
+
+    // }, [email])
 
 
 

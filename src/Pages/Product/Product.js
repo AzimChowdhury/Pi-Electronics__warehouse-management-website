@@ -10,7 +10,7 @@ function Product() {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
-        fetch(`https://limitless-cliffs-34588.herokuapp.com/product/${id}`)
+        fetch(`https://pi-electronics224.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id, product])
@@ -23,7 +23,7 @@ function Product() {
         const newQuantity = e.target.quantity.value;
         const updatedProduct = { name, image, description, supplier, price, newQuantity };
 
-        fetch(`https://limitless-cliffs-34588.herokuapp.com/product/${id}`, {
+        fetch(`https://pi-electronics224.herokuapp.com/product/${id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -41,7 +41,7 @@ function Product() {
         const newQuantity = quantity - 1;
 
         const updatedProduct = { name, image, description, supplier, price, newQuantity };
-        fetch(`https://limitless-cliffs-34588.herokuapp.com/product/${id}`, {
+        fetch(`https://pi-electronics224.herokuapp.com/product/${id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -58,7 +58,7 @@ function Product() {
     const handleDelete = (id) => {
         const sure = window.confirm('Are you sure you want to delete ? ')
         if (sure) {
-            fetch(`https://limitless-cliffs-34588.herokuapp.com/product/${id}`, {
+            fetch(`https://pi-electronics224.herokuapp.com/product/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json)
