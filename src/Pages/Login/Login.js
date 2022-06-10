@@ -43,7 +43,7 @@ function Login() {
     if (user1 || user) {
         // provide jwt token 
         const provideToken = async (email) => {
-            const { data } = await axios.post('https://pi-electronics224.herokuapp.com/login', { email });
+            const { data } = await axios.post('https://pi-electronics-2244.herokuapp.com/login', { email });
             // console.log(data.token)
             localStorage.setItem('jwt-token', data.token)
         }
