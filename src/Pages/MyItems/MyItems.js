@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Products from '../Products/Products';
-import axios from 'axios';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useQuery } from 'react-query';
@@ -25,23 +24,7 @@ function MyItems() {
         </>
     }
 
-    // const [myProducts, setMyProducts] = useState([]);
-
-
-    // useEffect(() => {
-
-    //     const myItems = async () => {
-    //         const { data } = await axios.get(`https://pi-electronics-2244.herokuapp.com/product?email=${email}`, {
-    //             headers: {
-    //                 authorization: `Bearer ${localStorage.getItem('jwt-token')}`
-    //             }
-    //         })
-    //         setMyProducts(data)
-    //     }
-
-    //     myItems();
-
-    // }, [email])
+    
 
 
 
@@ -59,7 +42,7 @@ function MyItems() {
                         :
                         <div>
                             {
-                                data.map(product => <Products
+                                data?.map(product => <Products
                                     key={product._id}
                                     product={product}
                                 ></Products>)
